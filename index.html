@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <title>Player de Áudio com Múltiplas Faixas</title>
+    <style>
+       {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      .audio-player {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      audio {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="audio-player">
+      <h2>Escolha a música</h2>
+
+      <!-- Player de Áudio -->
+      <audio id="audioPlayer" controls>
+        <source id="audioSource" src="audio1.mp3" type="audio/mp3" />
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+
+      <!-- Botões para alternar entre os arquivos MP3 -->
+      <div>
+        <button onclick="changeAudio('janis_joplin.mp3')">Janis Joplin</button>
+        <button onclick="changeAudio('nazareth.mp3')">Nazareth</button>
+      </div>
+    </div>
+
+    <script>
+      // Função para alternar entre os arquivos MP3
+      function changeAudio(audioFile) {
+        var audioPlayer = document.getElementById("audioPlayer");
+        var audioSource = document.getElementById("audioSource");
+        audioSource.src = audioFile;
+        audioPlayer.load();
+        audioPlayer.play();
+      }
+    </script>
+  </body>
+</html>
